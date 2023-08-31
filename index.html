@@ -7,7 +7,27 @@
   <title>Araceli Ponce Sanga</title>
 
 
+  <!-- Meta Tags -->
+  <meta name="description" content="Desarrolladora web, transformando aprendizajes en realidades." />
+  <meta name="keywords" content="Add relevant keywords that describe your content." />
+  <meta name="author" content="Araceli Ponce Sanga" />
+  <meta name="robots" content="index, follow" /> <!-- Control search engine crawling behavior -->
 
+  <!-- Open Graph Meta Tags (for social media sharing) -->
+  <meta property="og:title" content="Araceli Ponce Sanga" />
+  <meta property="og:description" content="Desarrolladora web, transformando aprendizajes en realidades." />
+  <meta property="og:image" content="og.png" /> <!-- Image for sharing 1200x630 -->
+  <meta property="og:url" content="https://araceliponce.github.io/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Meta Tags (for Twitter sharing) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Araceli Ponce Sanga" />
+  <meta name="twitter:description" content="Desarrolladora web, transformando aprendizajes en realidades." />
+  <meta name="twitter:image" content="og.png" />
+
+  <!-- Canonical URL (not needed in this case) -->
+  <!-- <link rel="canonical" href="https://araceliponce.github.io/" /> -->
 
   <!-- Icons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
@@ -29,19 +49,54 @@
   </script>
 
 
-  <script type="module" crossorigin src="/assets/index-554b1bf8.js"></script>
-  <link rel="stylesheet" href="/assets/index-8456fd41.css">
+  <script type="module" crossorigin src="/assets/index-edc34a5c.js"></script>
+  <link rel="stylesheet" href="/assets/index-0b41e2a3.css">
 </head>
 
 <body>
   <div id="app"></div>
   
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Checks if the device supports hover interactions
+      function checkHoverSupport() {
+        return window.matchMedia('(hover: hover)').matches;
+      }
+
+      // Loads scripts
+      function loadScript(src) {
+        var script = document.createElement('script');
+        script.src = src;
+        document.body.appendChild(script);
+      }
+
+      // Only listens to first event
+      var scriptsLoaded = false;
+
+      // Attachs event listener to #hero (or #hero>*)
+      var childElement = document.querySelector('#hero');
+      if (childElement) {
+        // childElement.addEventListener('click', function () {
+        childElement.addEventListener('mouseenter', function () {
+          if (!scriptsLoaded) {
+            // console.log('click')
+            console.log('mouseenter')
+            var isHoverable = checkHoverSupport();
+            if (isHoverable) {
+              // Load the scripts
+              loadScript('/src/js/imagesloaded.pkgd.min.js');
+              loadScript('/src/js/TweenMax.min.js');
+              loadScript('/src/js/trail.js');
+              scriptsLoaded = true; // Mark scripts as loaded
+            }
+          }
+        });
+      }
+    });
+  </script>
 
 
-  <script src="/imagesloaded.pkgd.min.js"></script>
-  <script src="/TweenMax.min.js"></script>
-  <script src="/trail.js"></script>
 </body>
 
 </html>
