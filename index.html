@@ -46,12 +46,38 @@
   </script>
 
 
-  <script type="module" crossorigin src="/assets/main-a382709f.js"></script>
-  <link rel="stylesheet" href="/assets/index-6a1eda23.css">
+  <script type="module" crossorigin src="/assets/main-5e2053a6.js"></script>
+  <link rel="stylesheet" href="/assets/index-e439d918.css">
 </head>
 
 <body>
   <div id="app"></div>
+
+
+  <script>
+    // Function to log the height changes of elements
+    function logHeightChanges() {
+      console.log('new')
+      // const elements = document.querySelectorAll('*'); // Select all elements (you can refine this selector as needed)
+      const elements = document.querySelectorAll('*:not(svg):not(path):not(img)');
+
+
+      elements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        const currentHeight = rect.height;
+
+        if (element.lastHeight !== currentHeight) {
+          console.log(`Element: ${element.tagName}, Last Height: ${element.lastHeight}px, Current Height: ${currentHeight}px`);
+          element.lastHeight = currentHeight;
+        }
+      });
+    }
+
+    // Set an interval to check for height changes every 0.5 seconds
+    // setInterval(logHeightChanges, 1000);
+
+
+  </script>
   
 </body>
 
